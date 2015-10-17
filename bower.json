@@ -1,0 +1,25 @@
+{
+  "name": "ministrel",
+  "description": "Ministrel is an interface for popgen",
+  "main": "index.js",
+  "authors": [
+    "Matheus Marchini <matheusdot@gmail.com>"
+  ],
+  "license": "MIT",
+  "keywords": [
+    "bard",
+    "popgen",
+    "composition",
+    "music"
+  ],
+  "moduleType": [],
+  "homepage": "http://www.ministrel.net",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ]
+}
