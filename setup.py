@@ -55,7 +55,9 @@ setup(
     # https://packaging.python.org/en/latest/requirements.html
     install_requires=[
         'tornado',
-        'pydub'
+        'pydub',
+        'popgen',
+        'm3-cdecimal',
     ],
 
     # List additional groups of dependencies here (e.g. development

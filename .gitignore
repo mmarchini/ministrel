@@ -33,7 +33,7 @@ var/
 pip-log.txt
 pip-delete-this-directory.txt
 
-# Unit test / coverage reports
+# Unit test / coverage / performance reports
 htmlcov/
 .tox/
 .coverage
@@ -61,3 +61,6 @@ target/
 *.midi
 *.mp3
 *.wav
+
+# Bower, grunt, etc
+ministrel/static/bower/

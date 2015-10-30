@@ -21,5 +21,10 @@
     "bower_components",
     "test",
     "tests"
-  ]
+  ],
+  "dependencies": {
+    "bootstrap-material-design": "~0.3.0",
+    "font-awesome": "~4.4.0",
+    "nouislider": "~8.0.2"
+  }
 }
