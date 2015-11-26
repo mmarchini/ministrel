@@ -8,14 +8,12 @@ import tornado.ioloop
 import tornado.web
 from tornado.web import template
 from pydub import AudioSegment
-from popgen import composition
+
+from ministrel import model
 
 
 def generate(mp3_file):
-    c = composition.Composition()
-    c.compose()
-    with NamedTemporaryFile(suffix='.wav') as wav_file:
-        c.play(wav_file.name)
+    with open(model.Musics.get_next_song()) as wav_file:
         AudioSegment.from_wav(wav_file).export(mp3_file)
     return mp3_file
 

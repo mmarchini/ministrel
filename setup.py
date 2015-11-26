@@ -86,6 +86,7 @@ setup(
     entry_points={
         'console_scripts': [
             'ministrel=ministrel:main',
+            'ministrel-worker=ministrel.worker:main',
         ],
     },
 )

@@ -25,6 +25,8 @@
   "dependencies": {
     "bootstrap-material-design": "~0.3.0",
     "font-awesome": "~4.4.0",
-    "nouislider": "~8.0.2"
+    "nouislider": "~8.0.2",
+    "bootstrap": "~3.3.6",
+    "urijs": "uri.js#~1.17.0"
   }
 }
