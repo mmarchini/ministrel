@@ -58,6 +58,8 @@ setup(
         'pydub',
         'popgen',
         'm3-cdecimal',
+        'SQLAlchemy',
+        'psycopg2',
     ],
 
     # List additional groups of dependencies here (e.g. development

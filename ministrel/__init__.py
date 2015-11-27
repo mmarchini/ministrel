@@ -2,20 +2,11 @@
 
 '''Bard is a server for popge'''
 
-from tempfile import NamedTemporaryFile
-
 import tornado.ioloop
 import tornado.web
 from tornado.web import template
-from pydub import AudioSegment
 
 from ministrel import model
-
-
-def generate(mp3_file):
-    with open(model.Musics.get_next_song()) as wav_file:
-        AudioSegment.from_wav(wav_file).export(mp3_file)
-    return mp3_file
 
 
 class Generate(tornado.web.RequestHandler):
@@ -24,8 +15,8 @@ class Generate(tornado.web.RequestHandler):
         mood = self.get_query_argument('mood')
         print style, mood
         self.set_header('Content-Type', 'audio/mp3')
-        with NamedTemporaryFile(suffix='.wav') as mp3_file:
-            self.write(generate(mp3_file).read())
+        with open(model.Musics.get_next_song()) as mp3_file:
+            self.write(mp3_file.read())
 
 
 class Page(tornado.web.RequestHandler):

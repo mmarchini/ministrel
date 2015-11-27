@@ -26,7 +26,7 @@ class Musics(Base):
     id = Column(Integer, primary_key=True)
 
     name = Column(Unicode(255))
-    creation_date = Column(DateTime, default=datetime.now())
+    creation_date = Column(DateTime, default=datetime.now)
     # composed; available; played;
     status = Column(Unicode(255), default='composed')
     midi_file = Column(UnicodeText, unique=True)
@@ -41,20 +41,20 @@ class Musics(Base):
             utils.play(self.midi_file, 'arachno.sf2', wav_file.name)
             mp3_filename = self.mp3_filename
             with open(mp3_filename, 'w') as mp3_file:
-                AudioSegment.from_wav(wav_file).export(mp3_file)
+                AudioSegment.from_wav(wav_file).export(mp3_file, format="mp3")
 
         return mp3_filename
 
     @classmethod
     def get_next_song(cls):
         next_song = session.query(Musics).filter(Musics.status == 'available')\
-            .first()
+            .order_by(Musics.creation_date).first()
 
         with session.begin():
             next_song.status = 'played'
             session.add(next_song)
 
-        return next_song.convert_to_wav()
+        return next_song.mp3_filename
 
 
 Base.metadata.create_all(engine)
