@@ -60,6 +60,7 @@ setup(
         'm3-cdecimal',
         'SQLAlchemy',
         'psycopg2',
+        'mixer',
     ],
 
     # List additional groups of dependencies here (e.g. development

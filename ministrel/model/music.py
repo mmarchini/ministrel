@@ -1,23 +1,12 @@
-
 import os
 from datetime import datetime
 from tempfile import NamedTemporaryFile
 
-from sqlalchemy.orm import sessionmaker
-from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Column, Integer, Unicode, UnicodeText, DateTime
-from sqlalchemy import create_engine
 from pydub import AudioSegment
 
+from ministrel.model.base import Base, session
 from ministrel import utils
-
-dburi = "postgresql+psycopg2://matheus:minstrel@localhost:5432/minstrel"
-engine = create_engine(dburi, echo=True)
-Session = sessionmaker(bind=engine, autocommit=True)
-
-Base = declarative_base()
-
-session = Session()
 
 
 class Musics(Base):
@@ -55,6 +44,3 @@ class Musics(Base):
             session.add(next_song)
 
         return next_song.mp3_filename
-
-
-Base.metadata.create_all(engine)
