@@ -20,7 +20,8 @@ class Mood(Base):
 
 class UsableInstrument(Base):
     __tablename__ = 'usable_instruments'
-    instrument = Column(Unicode(255), ForeignKey('instruments.name'), primary_key=True)
+    instrument = Column(Unicode(255), ForeignKey('instruments.name'),
+                        primary_key=True)
     style = Column(Unicode(100), ForeignKey('styles.name'), primary_key=True)
     mood = Column(Unicode(100), ForeignKey('moods.name'), primary_key=True)
     # vocal; chords; bass

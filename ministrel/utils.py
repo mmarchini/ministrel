@@ -1,3 +1,6 @@
+import hashlib
+from datetime import datetime
+
 from mingus.midi.pyfluidsynth import cfunc, c_void_p, c_int, c_char_p
 from mingus.midi.pyfluidsynth import new_fluid_settings, fluid_settings_setstr
 from mingus.midi.pyfluidsynth import fluid_synth_sfload, fluid_settings_setint
@@ -69,3 +72,9 @@ def play(midifile, sffile, output_filename):
     delete_fluid_player(player)
     delete_fluid_synth(synth)
     delete_fluid_settings(settings)
+
+
+def get_hash():
+    hasher = hashlib.sha1()
+    hasher.update(datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f'))
+    return hasher.hexdigest()

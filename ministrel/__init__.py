@@ -6,7 +6,7 @@ import tornado.ioloop
 import tornado.web
 from tornado.web import template
 
-from ministrel import model
+from ministrel.model import music
 
 
 class Generate(tornado.web.RequestHandler):
@@ -15,7 +15,7 @@ class Generate(tornado.web.RequestHandler):
         mood = self.get_query_argument('mood')
         print style, mood
         self.set_header('Content-Type', 'audio/mp3')
-        with open(model.Musics.get_next_song()) as mp3_file:
+        with open(music.Musics.get_next_song(style, mood)) as mp3_file:
             self.write(mp3_file.read())
 
 
